@@ -34,11 +34,7 @@ public class Main {
                     break;
 
                 case 2:
-                    String mensaje = "-FACTURA -\n";
-                    mensaje += productos.getProductos() + "\n";
-                    mensaje += "Total a pagar: " + productos.getMonto();
-
-                    JOptionPane.showMessageDialog(null, mensaje);
+                    JOptionPane.showMessageDialog(null, productos.getFactura());
                     break;
 
                 case 3:

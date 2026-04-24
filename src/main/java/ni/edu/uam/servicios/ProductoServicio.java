@@ -25,6 +25,51 @@ public class ProductoServicio  implements ProductoInterface {
         return productos;
     }
 
+    @Override
+    public boolean eliminarProducto(String nombre) {
+        return false;
+    }
+
+    @Override
+    public boolean editarProducto(String nombre, double precio, int cantidad) {
+        return false;
+    }
+
+    public boolean buscarProducto(String nombre, int cantidad, double precio) {
+        for (Producto p : productos) {
+            if (p.getNombre().equalsIgnoreCase(nombre)
+                    && p.getCantidad() == cantidad
+                    && p.getPrecio() == precio) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean buscarProductoPorNombre(String nombre) {
+        for (Producto g : productos) {
+            if (g.getNombre().equalsIgnoreCase(nombre)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean eliminarP(String nombre) {
+        return productos.removeIf(p -> p.getNombre().equalsIgnoreCase(nombre));
+
+
+    }
+
+    public boolean modificarProducto(String nombre, int nuevaCantidad, double nuevoPrecio) {
+        for (Producto p : productos) {
+            if (p.getNombre().equalsIgnoreCase(nombre)) {
+                p.setCantidad(nuevaCantidad);
+                p.setPrecio(nuevoPrecio);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public StringBuilder getFactura(){
         StringBuilder mensaje = new StringBuilder();
         mensaje.append("Factura");
